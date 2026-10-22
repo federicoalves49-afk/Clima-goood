@@ -1,0 +1,19 @@
+{
+  "name": "ClimaApp — Tu clima en tiempo real",
+  "short_name": "ClimaApp",
+  "description": "Consulta el clima actual y el pronóstico de 7 días.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a1020",
+  "theme_color": "#101827",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

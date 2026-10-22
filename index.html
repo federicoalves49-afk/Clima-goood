@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Consulta el clima actual y el pronóstico de los próximos siete días en tu ciudad.">
+  <title>ClimaApp — Tu clima, en tiempo real</title>
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="ClimaApp inicio"><span class="brand-mark">☀</span><span>Clima<span class="brand-light">App</span></span></a>
+      <div class="header-actions">
+        <button id="unitBtn" class="icon-btn" type="button" aria-label="Cambiar unidad" title="Cambiar entre Celsius y Fahrenheit">°C</button>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">☾</button>
+      </div>
+    </header>
+
+    <section class="search-section" aria-label="Buscar ciudad">
+      <form id="searchForm" class="search-form">
+        <span class="search-symbol" aria-hidden="true">⌕</span>
+        <input id="cityInput" name="city" autocomplete="off" placeholder="Buscar ciudad..." aria-label="Nombre de la ciudad" value="Guichón" required>
+        <button type="submit">Buscar</button>
+      </form>
+      <button id="locationBtn" class="location-button" type="button"><span aria-hidden="true">⌖</span> Usar mi ubicación</button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite">Cargando información meteorológica…</p>
+
+    <main>
+      <section class="hero-card">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow">CLIMA ACTUAL</p>
+            <h1 id="place">Guichón, Uruguay</h1>
+            <p id="localDate" class="muted">Consultando hora local…</p>
+          </div>
+          <div id="heroIcon" class="hero-icon" aria-hidden="true">🌤️</div>
+        </div>
+        <div class="temperature-row">
+          <div id="temperature" class="temperature">--°</div>
+          <div class="temperature-description">
+            <h2 id="condition">Cargando…</h2>
+            <p id="feelsLike" class="muted">Sensación térmica: --°</p>
+            <div class="high-low"><span id="todayHigh">↑ Máx. --°</span><span id="todayLow">↓ Mín. --°</span></div>
+          </div>
+        </div>
+        <div class="hero-footer"><span class="live-dot"></span> Datos meteorológicos de Open-Meteo</div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">EN ESTE MOMENTO</p><h2>Detalles del clima</h2></div></div>
+        <div class="metrics-grid">
+          <article class="metric-card"><div class="metric-label"><span class="metric-icon">🌡️</span><span>Sensación térmica</span></div><strong id="feelsMetric">--°</strong><p>Cómo se siente afuera</p></article>
+          <article class="metric-card"><div class="metric-label"><span class="metric-icon">💧</span><span>Humedad</span></div><strong id="humidity">--%</strong><p>Humedad relativa</p></article>
+          <article class="metric-card"><div class="metric-label"><span class="metric-icon">💨</span><span>Viento</span></div><strong id="wind">-- km/h</strong><p>Velocidad actual</p></article>
+          <article class="metric-card"><div class="metric-label"><span class="metric-icon">🌧️</span><span>Prob. de lluvia</span></div><strong id="rain">--%</strong><p>Próxima hora disponible</p></article>
+        </div>
+      </section>
+
+      <section class="section-block panel">
+        <div class="section-heading"><div><p class="eyebrow">LAS PRÓXIMAS HORAS</p><h2>Pronóstico por hora</h2></div></div>
+        <div id="hourly" class="hourly-list"><div class="skeleton">Cargando pronóstico…</div></div>
+      </section>
+
+      <section class="section-block panel">
+        <div class="section-heading"><div><p class="eyebrow">PLANIFICÁ TU SEMANA</p><h2>Próximos 7 días</h2></div></div>
+        <div id="daily" class="daily-list"><div class="skeleton">Cargando pronóstico…</div></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand"><span class="brand-mark">☀</span> ClimaApp</div>
+      <p>Pronóstico meteorológico proporcionado por <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>.</p>
+      <p class="footer-small">Los pronósticos son estimaciones y pueden cambiar. Requiere conexión a internet.</p>
+    </footer>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
